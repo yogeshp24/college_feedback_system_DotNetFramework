@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Contact Us";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+    #n1 {
+        background-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+        border-bottom: 1px solid #dbdbdb;
+        height: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+        width: 100%;
+        background-color: lightblue;
+    }
+
+    #n2 {
+        background-color: rgba(255, 255, 255, 0.2);
+        box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+        border-bottom: 1px solid #dbdbdb;
+        height: 350px;
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        padding: 0 20px;
+        width: 100%;
+        padding-top: 30px;
+        background-color: darkkhaki;
+    }
+</style>
+
+<nav id="n1" class="navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">College Feedback System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Home", "Home")">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("AboutUs", "Home")">About Us</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="@Url.Action("ContactUs", "Home")">Contact Us</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="@Url.Action("Login", "home")">Logout</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<body  style="background-color:lightcyan">
+
+    <div class="container mt-5">
+
+        <div class="card" id="n2">
+            <div class="row">
+                <div class="col-md-6 ps-4">
+                    <h3>Contact US</h3>
+                    <p><strong>Mobile No:</strong> 9156221989</p>
+                    <p><strong>Email:</strong> abhimadane3483@gmail.com</p>
+                    <p><strong>Address:</strong> At.Post Parandwadi, Tal.Mavel, Dist. Pune</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

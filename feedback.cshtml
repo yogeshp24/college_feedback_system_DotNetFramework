@@ -1,0 +1,94 @@
+﻿@model collegefeedbacksystem24.Models.feedback
+
+@{
+    ViewBag.Title = "feedback";
+}
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<style>
+    .insta-style-form {
+        max-width: 400px;
+        margin: 60px auto;
+        padding: 30px;
+        /*        background-color: #fafafa;*/
+        border-radius: 20px;
+        /*        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    */
+        background-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.8);
+        border-bottom: 1px solid #dbdbdb;
+    }
+
+        .insta-style-form h3 {
+            font-family: 'Helvetica Neue', sans-serif;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .insta-style-form input,
+        .insta-style-form select,
+        .insta-style-form textarea {
+            border-radius: 10px;
+            border: 1px solid #dbdbdb;
+            padding: 12px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .insta-style-form button {
+            background-color: #3897f0;
+            color: white;
+            border: none;
+            padding: 10px 0;
+            font-weight: 600;
+            width: 100%;
+            border-radius: 10px;
+        }
+</style>
+
+<div class="insta-style-form">
+    <h3 style="color:forestgreen">Feedback Form</h3>
+
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div style="margin-left:30px">
+            @Html.LabelFor(m => m.StudentId)
+            @Html.TextBoxFor(m => m.StudentId, new { @type = "number", @placeholder = "Student ID" })
+            @Html.ValidationMessageFor(m => m.StudentId, "", new { @class = "text-danger" })
+        </div>
+
+        <div style="margin-left:30px">
+            @Html.LabelFor(m => m.StudentName)
+            @Html.TextBoxFor(m => m.StudentName, new { @placeholder = "Your Full Name" })
+            @Html.ValidationMessageFor(m => m.StudentName, "", new { @class = "text-danger" })
+        </div>
+
+        <div style="margin-left:30px">
+            @Html.LabelFor(m => m.FeedbackType)
+            @Html.DropDownListFor(m => m.FeedbackType, new SelectList(new[] {
+                "Bug Report", "Feature Request", "Suggestion", "Other"
+            }), "Select Feedback Type")
+            @Html.ValidationMessageFor(m => m.FeedbackType, "", new { @class = "text-danger" })
+        </div>
+
+        <div style="margin-left:30px">
+            @Html.LabelFor(m => m.FeedbackText)
+            @Html.TextAreaFor(m => m.FeedbackText, new { rows = 4, @placeholder = "Write your feedback here..." })
+            @Html.ValidationMessageFor(m => m.FeedbackText, "", new { @class = "text-danger" })
+        </div>
+
+        <button type="submit">Submit</button>
+
+    }
+</div>
+<hr />
+
+<footer>
+    <p style="margin-left:430px">&copy; @DateTime.Now.Year - College feedback System</p>
+</footer>
